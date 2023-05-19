@@ -45,6 +45,16 @@ class User extends Base {
       this.username = null;
     }
 
+    if ('global_name' in data) {
+      /**
+       * The global name of the user
+       * @type {?string}
+       */
+      this.globalName = data.global_name;
+    } else if (typeof this.globalName !== 'string') {
+      this.globalName = null;
+    }
+
     if ('bot' in data || typeof this.bot !== 'boolean') {
       /**
        * Whether or not the user is a bot
